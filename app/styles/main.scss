@@ -3,6 +3,8 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 
+@import url('//fonts.googleapis.com/css?family=Lobster');
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -11,6 +13,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 }
 
 body {
+  margin-top: 60px;
   padding: 0;
 }
 
@@ -69,9 +72,9 @@ body {
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
+  //.container {
+    //max-width: 1024px;
+  //}
 
   /* Remove the padding we set earlier */
   .header,
@@ -88,4 +91,37 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
+}
+
+
+.section-title, .navbar-brand {
+  font-family: 'Lobster', cursive;
+  font-weight: bold;
+  line-height: 1.1;
+  font-size: 26px;
+  margin-top: 0;
+}
+
+.movie-container {
+  height: 250px;
+}
+
+.movie-thumb {
+  text-align: center;
+  color: black;
+}
+
+.movie-thumb h5 {
+  font-weight: bold;
+  margin-top: 0;
+}
+
+.movie-thumb:hover {
+  text-decoration: none;
+  color: gray;
+}
+
+.thumbnail {
+  margin-bottom: 10px;
+  max-height: 200px;
 }

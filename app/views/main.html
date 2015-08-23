@@ -1,13 +1,27 @@
 <div class="row" ng-controller="CatalogCtrl as vm">
 	<div class="well col-sm-10 col-xs-12">
 		<div class="row">
-			<div class="movie-container col-sm-2 col-xs-6" ng-repeat="movie in vm.movieList">
+			
+			<div class="col-xs-12">
+				<div class="page-header section-title">Most Watched this Week</div>
+			</div>
+			
+			<div class="movie-container col-sm-2 col-xs-6" 
+				ng-repeat="movie in vm.movieList | paginate:vm.currentPage:vm.pageSize">
 				<a href="#" class="movie-thumb">
 					<img ng-src="img/posters/{{movie.poster_path}}" alt="{{movie.title}} movie poster"
 						class="thumbnail img-responsive">				
 					<h5>{{movie.title}}</h5>
 				</a>
 			</div>
+			
+			
+			<div class="col-xs-12">
+				<pagination class="pagination" 
+					total-items="vm.movieList.length" ng-model="vm.currentPage" 
+					items-per-page="vm.pageSize"></pagination>
+			</div>
+			
 		</div>
 	</div>
 </div>
