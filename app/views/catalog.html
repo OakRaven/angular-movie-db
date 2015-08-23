@@ -1,0 +1,25 @@
+<div class="well col-sm-10 col-xs-12">
+	<div class="row">
+		
+		<div class="col-xs-12">
+			<div class="page-header section-title">Most Watched this Week</div>
+		</div>
+		
+		<div class="movie-container col-sm-2 col-xs-6" 
+			ng-repeat="movie in catalog.movieList | paginate:catalog.currentPage:catalog.pageSize">
+			<a href="#/movie/{{movie.id}}" class="movie-thumb">
+				<img ng-src="img/posters/{{movie.poster_path}}" alt="{{movie.title}} movie poster"
+					class="thumbnail img-responsive">				
+				<h5>{{movie.title}}</h5>
+			</a>
+		</div>
+					
+		<div class="col-xs-12">
+			<pagination class="pagination" 
+				ng-show="catalog.movieList.length > catalog.pageSize"
+				total-items="catalog.movieList.length" ng-model="catalog.currentPage" 
+				items-per-page="catalog.pageSize"></pagination>
+		</div>
+		
+	</div>
+</div>

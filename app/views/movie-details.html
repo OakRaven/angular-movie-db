@@ -1,0 +1,16 @@
+<div class="well moviedetails col-xs-12">
+	<img ng-src="img/posters{{details.movie.poster_path}}" alt="" class="poster img-thumbnail img-responsive">
+	
+	<h1 class="movie-title">{{details.movie.title}} ({{details.movie.release_date | date:'yyyy'}})</h1>
+	
+	<a ng-repeat="genre in details.movie.genres" class="btn btn-info" href="#/genres/{{genre.id}}">{{genre.name}}</a>
+	
+	<div class="overview">{{details.movie.overview}}</div>
+	
+	<div class="extra-details">
+		<kbd>Runtime: {{details.movie.runtime}} minutes</kbd>
+		<kbd>Country: {{details.movie.production_countries[0].name}}</kbd>
+		<kbd>Language: {{details.movie.spoken_languages[0].name}}</kbd>
+		<kbd>Release: {{details.movie.release_date | date}}</kbd>
+	</div>
+</div>
