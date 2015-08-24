@@ -13,4 +13,8 @@
 		<kbd>Language: {{details.movie.spoken_languages[0].name}}</kbd>
 		<kbd>Release: {{details.movie.release_date | date}}</kbd>
 	</div>
+	
+	<div class="row videoplayer" ng-show="details.movie.youtube_id">
+		<youtube-video video-id="details.movie.youtube_id"></youtube-video>		
+	</div>
 </div>
