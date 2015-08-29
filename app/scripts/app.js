@@ -26,15 +26,15 @@ angular
         controller: 'CatalogCtrl',
         controllerAs: 'catalog'
       })
-      .when('/:genre', {
-        templateUrl: 'views/catalog.html',
-        controller: 'CatalogCtrl',
-        controllerAs: 'catalog'
-      })
       .when('/movie/:id', {
         templateUrl: 'views/movie-details.html',
         controller: 'MovieCtrl',
         controllerAs: 'details'
+      })
+      .when('/genre/:genreName', {
+        templateUrl: 'views/catalog.html',
+        controller: 'GenreCtrl',
+        controllerAs: 'catalog'
       })
       .otherwise({
         redirectTo: '/'

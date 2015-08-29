@@ -1,23 +1,23 @@
+/*global angular:false */
 'use strict';
 
 angular.module('movieDb')
-	.controller('CatalogCtrl', function ($http, $routeParams) {
-		var self = this;
+	.controller('CatalogCtrl', ['movieApiService',
+		function (movieApiService) {
+			var self = this;
 
-		self.genreId = $routeParams.genre ? parseInt($routeParams.genre) : 0;
+			self.movieList = [];
+			self.genreList = [];
+			self.pageTitle = "Most Watched this Week";
+			self.currentPage = 1;
+			self.pageSize = 12;
 
-		self.movieList = [];
-		self.currentPage = 1;
-		self.pageSize = 12;
-
-		$http.get('json/movies.json').success(function (data) {
-			
-			if (self.genreId === 0) {
+			movieApiService.getMovies().success(function (data) {
 				self.movieList = data;
-			} else {
-				self.movieList = _.filter(data, function (item) {	
-					return _.find(item.genres, {id: self.genreId});
-				});				
-			}
-		});
-	});
+			});
+
+			movieApiService.getGenres().success(function (data) {
+				self.genreList = data;
+			});
+		}
+	]);

@@ -1,8 +1,7 @@
 <div class="well col-sm-10 col-xs-12">
-	<div class="row">
-		
+	<div class="row">		
 		<div class="col-xs-12">
-			<div class="page-header section-title">Most Watched this Week</div>
+			<div class="page-header section-title">{{catalog.pageTitle}}</div>
 		</div>
 		
 		<div class="movie-container col-sm-2 col-xs-6" 
@@ -15,11 +14,23 @@
 		</div>
 					
 		<div class="col-xs-12">
-			<pagination class="pagination" 
+			<pagination class="pagination pull-right" 
 				ng-show="catalog.movieList.length > catalog.pageSize"
 				total-items="catalog.movieList.length" ng-model="catalog.currentPage" 
 				items-per-page="catalog.pageSize"></pagination>
 		</div>
-		
+	</div>
+</div>
+<div class="col-sm-2">
+	<div class="section-title genre-title">by genre</div>
+	<div class="list-group">
+		<a href="/#/" class="list-group-item">
+			<span class="badge">{{catalog.movieList.length}}</span>
+			All
+		</a>
+		<a href="/#/genre/{{genre.name}}" ng-class="{active: genre.name == catalog.genreName}" class="list-group-item" ng-repeat="genre in catalog.genreList">			
+			<span class="badge">{{genre.total}}</span>
+			{{genre.name}}
+		</a>
 	</div>
 </div>
